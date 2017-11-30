@@ -8,7 +8,7 @@ def principal():
     call_command('syncdb', interactive=False)
 
     usuario = User.objects.create_user('admin', 'admin@admin.es', 'admin')
-    Profesor.objects.create(usuario=usuario, nombre='Admin', apellidos='Admin', universidad='Sevillas', departamento='LSI')
+    Profesor.objects.create(usuario=usuario, nombre='Admin', apellidos='Admin', universidad='Universidad de Sevilla', departamento='LSI')
 
 if __name__ == '__main__':
     principal()
