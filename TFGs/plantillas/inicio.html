@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block titulo%} Inicio {% endblock %}
+
+{% block encabezado %}
+	<h1>Inicio</h1>
+{% endblock %}
+
+{% block conectado %}
+	{% if auth %}
+		<li><a href='/logout'>Log out</a></li>
+		{% if profesor %}
+			<li><a href='/signinprofesor'>Registrar Profesor</a></li>
+			<li><a href='/creatfg'>Nuevo TFG</a></li>
+		{% endif %}
+	{% else %}
+		<li><a href='/login'>Log in</a></li>
+		<li><a href='/signin'>Sign in</a></li>
+	{% endif %}
+{% endblock %}
+
+{% block contenido %}
+	<p>Acualmente tenemos registrados:
+	{% with total=tfgs.count %}
+		{{total}} trabajo{{total|pluralize}} de fin de grado
+	{% endwith %}
+	</p>
+	{% if auth %}
+		<p>Bienvenid@ {{usuario.username}} :)</p>
+		<p>La ultima vez que te vimos fue el {{usuario.last_login}}
+		<br>Eres miembro desde el {{usuario.date_joined}}</p>
+	{% endif %}
+{% endblock %}
+	

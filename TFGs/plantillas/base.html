@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang='es'>
+  <head>
+	<title>TFGs - {% block titulo %}{% endblock %}</title>
+	<meta charset='utf-8'>
+  </head>
+  <body>
+  	<header>
+  	{% block encabezado %}{% endblock %}
+  		<nav>
+  			<ul>
+  				<li><a href='/'>Inicio</a></li>
+  				{% block conectado %}{% endblock %}
+  				<li><a href='/listatfgs'>TFGs</a></li>
+  				<li><a href='/search'>Titulaciones</a></li>
+  			</ul>
+  		</nav>
+  	</header>
+  	<section>
+  	{% block contenido %}{% endblock %}
+  	</section>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block titulo%} TFG {% endblock %}
+
+{% block encabezado %}
+	<h1>Trabajos de Fin de Grado</h1>
+{% endblock %}
+
+{% block contenido %}
+	<h2>Lista de TFGs</h2>
+	<hr>
+		{% for dato in tfgs %}
+			<h3>{{dato.titulo}}</h3>
+			<caption>Titulacion: {{dato.titulacion}}</caption>
+			<p>{{dato.descripcion}}</p>
+			<strong>Profesor:</strong> {{dato.profesor.nombre}} {{dato.profesor.apellidos}}
+			<hr>
+		{% empty %}
+			<li>No hay TFGs</li>
+		{% endfor %}
+{% endblock %}
+	
